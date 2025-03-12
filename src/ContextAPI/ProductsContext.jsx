@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+
 
 export const ProductContext = createContext();
 
@@ -8,7 +8,7 @@ export const ProductProvider = ({ children }) => {
 
   const [fetchData, setFetchData] = useState([]);
   const [product, setProduct] = useState({});
-  const { id } = useParams();
+  const [id,setId]  = useState();
 
   async function fetchProduct() {
     await fetch("https://dummyjson.com/products")
@@ -19,7 +19,7 @@ export const ProductProvider = ({ children }) => {
   }
 
   // Single Product API Call
-
+ 
   // Add to cart array
 
   const [addToCart, setAddToCart] = useState([]);
@@ -30,6 +30,10 @@ export const ProductProvider = ({ children }) => {
   const handleAddToCart = (productId) => {
     setAddToCart([...addToCart, productId]);
   };
+
+
+ 
+
 
   const handleAddToWishlist = (productId) => {
     setAddToWishList([...addToWishlist, productId]);

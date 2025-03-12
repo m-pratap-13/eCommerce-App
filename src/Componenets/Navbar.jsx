@@ -11,7 +11,7 @@ function Navbar() {
     <>
      <nav className="flex items-center justify-between bg-white shadow-md py-3 px-6 fixed top-0 right-0 left-0 z-1">
       {/* Logo */}
-      <div className="text-pink-500 text-3xl font-bold">M</div>
+      <Link to="/" className="text-pink-500 text-3xl font-bold">M</Link>
       
       {/* Navigation Links */}
       <div className="hidden md:flex space-x-6 text-gray-900 font-medium">

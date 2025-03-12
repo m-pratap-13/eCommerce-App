@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../ContextAPI/ProductsContext";
 
-
-
-function Cart({ id}) {
+function Cart({ id }) {
   const [product, setProduct] = useState({});
-  const { handleRemoveAddToCart,handleAddToWishlist } = useContext(ProductContext);
+  const { handleRemoveAddToCart, handleAddToWishlist } =
+    useContext(ProductContext);
+
 
   useEffect(() => {
     async function cartProductData() {
@@ -67,10 +67,16 @@ function Cart({ id}) {
           <span className="text-green-600 line-through ">$1 Free</span>
         </p>
         <div className="flex gap-2">
-          <button className="bg-gray-500 text-white w-full md:w-auto p-2 rounded hover:cursor-pointer" onClick={()=>handleAddToWishlist(product.id)}>
+          <button
+            className="bg-gray-500 text-white w-full md:w-auto p-2 rounded hover:cursor-pointer"
+            onClick={() => handleAddToWishlist(product.id)}
+          >
             Wishlist
           </button>
-          <button className="bg-red-500 text-white w-full md:w-auto p-2 rounded hover:cursor-pointer" onClick={()=>handleRemoveAddToCart(product.id)}>
+          <button
+            className="bg-red-500 text-white w-full md:w-auto p-2 rounded hover:cursor-pointer"
+            onClick={() => handleRemoveAddToCart(product.id)}
+          >
             REMOVE
           </button>
         </div>
