@@ -6,6 +6,7 @@ import ProductContainer from "./Componenets/ProductContainer";
 import SingleProductPage from './Componenets/SingleProductPage.jsx';
 import AddToCart from './Componenets/AddToCart.jsx';
 import AddToWishlist from './Componenets/AddToWishlist.jsx';
+import Fashion from './Componenets/Category/Fashion.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/addtowishlist",
         element: <AddToWishlist/>,
+      },
+      {
+        path: "/fashion",
+        element: <Fashion/>,
       },
     ],
   },

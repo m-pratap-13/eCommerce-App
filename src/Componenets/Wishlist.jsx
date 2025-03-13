@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AiOutlineDelete } from "react-icons/ai";
 import { ProductContext } from '../ContextAPI/ProductsContext';
+import { Link } from "react-router-dom";
 
 
 function Wishlist({id}) {
@@ -21,12 +22,16 @@ const {handleRemoveAddToWishlist }=useContext(ProductContext)
   return (
     <>
          <div className="m-2 flex flex-col sm:flex-row items-center sm:items-start p-6 border shadow-lg w-4/5 max-w-2xl mx-auto rounded-2xl bg-white">
+         <Link to={`/product/${product.id}/${product.title}`}>
         <img
           src={product.images?.[0]}
           alt="boAt 100 Wired"
           className="w-20 h-20 object-contain rounded-lg"
         />
+        </Link>
+        
         <div className="flex flex-col sm:flex-row justify-between items-center w-full sm:ml-6">
+        <Link to={`/product/${product.id}/${product.title}`}>
           <div className="flex flex-col space-y-1">
             <h3 className="text-blue-600 font-semibold text-lg">
               {product.title}
@@ -44,6 +49,7 @@ const {handleRemoveAddToWishlist }=useContext(ProductContext)
               </span>
             </div>
           </div>
+          </Link>
           <button className="text-gray-400 hover:text-red-500 transition duration-200 p-2 rounded-full hover:cursor-pointer" onClick={()=>handleRemoveAddToWishlist(product.id)}>
             <AiOutlineDelete size={22} />
           </button>

@@ -17,7 +17,7 @@ function ProductContainer() {
         Best Selling Products
       </div>
       <div className="p-30 flex flex-row flex-wrap justify-center items-center gap-4 md:pt-2 min-h-screen">
-        {fetchData.slice(0, 16).map((product) => (
+        {fetchData.slice(0, 15).map((product) => (
           <ProductCard
             key={product.id}
             product={product}

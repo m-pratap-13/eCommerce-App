@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../ContextAPI/ProductsContext";
+import { MdDelete } from "react-icons/md";
+import { AiOutlineHeart } from "react-icons/ai";
 
 function Cart({ id }) {
   const [product, setProduct] = useState({});
   const { handleRemoveAddToCart, handleAddToWishlist } =
     useContext(ProductContext);
-
 
   useEffect(() => {
     async function cartProductData() {
@@ -68,16 +69,16 @@ function Cart({ id }) {
         </p>
         <div className="flex gap-2">
           <button
-            className="bg-gray-500 text-white w-full md:w-auto p-2 rounded hover:cursor-pointer"
+            className="bg-gray-500 flex justify-center items-center text-white w-20 md:w-20 p-2 rounded hover:cursor-pointer"
             onClick={() => handleAddToWishlist(product.id)}
           >
-            Wishlist
+            <AiOutlineHeart size={22} />
           </button>
           <button
-            className="bg-red-500 text-white w-full md:w-auto p-2 rounded hover:cursor-pointer"
+            className="bg-red-500  flex justify-center items-center text-white w-20 md:w-20 p-2 rounded hover:cursor-pointer"
             onClick={() => handleRemoveAddToCart(product.id)}
           >
-            REMOVE
+            <MdDelete size={22} />
           </button>
         </div>
       </div>
