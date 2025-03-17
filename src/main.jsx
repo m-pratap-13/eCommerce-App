@@ -7,6 +7,7 @@ import SingleProductPage from './Componenets/SingleProductPage.jsx';
 import AddToCart from './Componenets/AddToCart.jsx';
 import AddToWishlist from './Componenets/AddToWishlist.jsx';
 import Fashion from './Componenets/Category/Fashion.jsx';
+import Search from './Componenets/Search/Search.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/fashion",
         element: <Fashion/>,
+      },
+      {
+        path: "search/:query",
+        element: <Search/>,
       },
     ],
   },

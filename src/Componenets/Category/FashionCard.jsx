@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { ProductContext } from "../../ContextAPI/ProductsContext";
 
 function FashionCard({product}) {
+   const { handleAddToCart,handleAddToWishlist} = useContext(ProductContext);
   return (
     <>
       <div className="max-w-xs w-100 bg-white border rounded-xl shadow-md overflow-hidden relative">

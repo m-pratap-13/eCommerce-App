@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 
-
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
@@ -8,7 +7,7 @@ export const ProductProvider = ({ children }) => {
 
   const [fetchData, setFetchData] = useState([]);
   const [product, setProduct] = useState({});
-  const [id,setId]  = useState();
+  const [query, setQuery] = useState();
 
   async function fetchProduct() {
     await fetch("https://dummyjson.com/products")
@@ -19,7 +18,7 @@ export const ProductProvider = ({ children }) => {
   }
 
   // Single Product API Call
- 
+
   // Add to cart array
 
   const [addToCart, setAddToCart] = useState([]);
@@ -30,10 +29,6 @@ export const ProductProvider = ({ children }) => {
   const handleAddToCart = (productId) => {
     setAddToCart([...addToCart, productId]);
   };
-
-
- 
-
 
   const handleAddToWishlist = (productId) => {
     setAddToWishList([...addToWishlist, productId]);
@@ -72,6 +67,8 @@ export const ProductProvider = ({ children }) => {
         handleAddToWishlist,
         totalWishlist,
         handleRemoveAddToWishlist,
+        query,
+        setQuery,
       }}
     >
       {children}
