@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const FashionHeroSection = () => {
+const HeroSection = () => {
   return (
     <div className="bg-gray-100">
       {/* Hero Section */}
@@ -12,7 +12,10 @@ const FashionHeroSection = () => {
         <p className="text-lg text-green-700 mt-2">
           Don't Miss Out - Limited Stock at Rock-Bottom Prices!
         </p>
-        <Link to="/" className="mt-4 bg-green-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-green-700">
+        <Link
+          to="/"
+          className="mt-4 bg-green-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-green-700"
+        >
           Shop now
         </Link>
       </section>
@@ -20,4 +23,4 @@ const FashionHeroSection = () => {
   );
 };
 
-export default FashionHeroSection;
+export default HeroSection;

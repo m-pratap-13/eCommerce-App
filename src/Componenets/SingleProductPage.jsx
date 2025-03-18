@@ -4,9 +4,8 @@ import { ProductContext } from "../ContextAPI/ProductsContext";
 import { useParams } from "react-router-dom";
 
 function SingleProductPage() {
- 
   const { id } = useParams();
-  const { handleAddToCart,product,setProduct } = useContext(ProductContext);
+  const { handleAddToCart, product, setProduct } = useContext(ProductContext);
 
   useEffect(() => {
     async function singleProductData() {
@@ -36,9 +35,26 @@ function SingleProductPage() {
             {/* Product Details */}
             <div>
               <h2 className="text-2xl font-semibold">{product.title}</h2>
-              <span className=" inline-block bg-blue-500 text-white text-lg font-bold px-3 py-1 rounded mt-2">
+              {/* <span className=" inline-block bg-blue-500 text-white text-lg font-bold px-3 py-1 rounded mt-2">
                 ${product.price}
-              </span>
+              </span> */}
+              <div className="flex items-center mt-2">
+                <span className="text-xl font-bold text-black">
+                  {" "}
+                  $
+                  {(
+                    product.price -
+                    (product.price * Math.round(product.discountPercentage)) /
+                      100
+                  ).toFixed(2)}
+                </span>
+                <span className="text-gray-400 line-through ml-2">
+                  ${product.price}
+                </span>
+                <span className="bg-red-100 text-red-600 text-xs px-2 py-1 ml-2 rounded">
+                  {Math.round(product.discountPercentage)}% Off
+                </span>
+              </div>
 
               <div className="mt-4 space-y-2">
                 <p className="text-gray-700">
@@ -61,8 +77,8 @@ function SingleProductPage() {
               </div>
 
               <button
-                className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
-                onClick={()=>handleAddToCart(product.id)}
+                className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 cursor-pointer"
+                onClick={() => handleAddToCart(product.id)}
               >
                 ADD TO CART
               </button>

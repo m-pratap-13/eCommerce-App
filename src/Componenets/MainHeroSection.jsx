@@ -11,7 +11,7 @@ import {
 import { LuArmchair } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-const HeroSection = () => {
+const MainHeroSection = () => {
   return (
     <div className="bg-gray-100">
       {/* Hero Section */}
@@ -34,7 +34,7 @@ const HeroSection = () => {
           <p className="text-sm font-semibold">Fashion</p>
         </Link>
 
-        <Link to="#electronics" className="flex flex-col items-center hover:text-green-600">
+        <Link to="/electronics" className="flex flex-col items-center hover:text-green-600">
           <FaMobileAlt className="text-xl" />
           <p className="text-sm font-semibold">Electronics</p>
         </Link>
@@ -64,7 +64,7 @@ const HeroSection = () => {
           <p className="text-sm font-semibold">Grocery</p>
         </Link>
 
-        <Link to="#furniture" className="flex flex-col items-center hover:text-green-600">
+        <Link to="/furniture" className="flex flex-col items-center hover:text-green-600">
           <LuArmchair className="text-xl" />
           <p className="text-sm font-semibold">Furniture</p>
         </Link>
@@ -73,4 +73,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default MainHeroSection;

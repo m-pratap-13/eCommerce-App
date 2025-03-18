@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FashionCard from "./FashionCard";
-import FashionHeroSection from "./FashionHeroSection";
+import HeroSection from "./HeroSection";
 
 function Fashion() {
   const [menShirt, setMenShirt] = useState([]);
@@ -78,7 +78,7 @@ function Fashion() {
 
   return (
     <>
-      <FashionHeroSection />
+      <HeroSection />
       <div className=" p-30 flex flex-row flex-wrap justify-center items-center gap-4 md:pt-2 min-h-screen">
         {menShirt.map((product) => (
           <FashionCard key={product.id} product={product} />

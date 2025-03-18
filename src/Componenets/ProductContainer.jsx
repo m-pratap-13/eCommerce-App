@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import HeroSection from "./HeroSection";
 import { ProductContext } from "../ContextAPI/ProductsContext";
+import MainHeroSection from "./MainHeroSection";
 
 
 function ProductContainer() {
@@ -12,7 +12,7 @@ function ProductContainer() {
 
   return (
     <>
-      <HeroSection />
+      <MainHeroSection />
       <div className="text-4xl font-bold text-900 text-center mt-7">
         Best Selling Products
       </div>

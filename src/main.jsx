@@ -8,6 +8,8 @@ import AddToCart from './Componenets/AddToCart.jsx';
 import AddToWishlist from './Componenets/AddToWishlist.jsx';
 import Fashion from './Componenets/Category/Fashion.jsx';
 import Search from './Componenets/Search/Search.jsx';
+import Electronics from './Componenets/Category/Electronics/Electronics.jsx';
+import Furniture from './Componenets/Category/Furniture/Furniture.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
       {
         path: "search/:query",
         element: <Search/>,
+      },
+      {
+        path: "/electronics",
+        element: <Electronics/>,
+      },
+      {
+        path: "/furniture",
+        element: <Furniture/>,
       },
     ],
   },
