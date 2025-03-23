@@ -5,7 +5,8 @@ import FurnitureCard from "./FurnitureCard";
 function Furniture() {
   const [furniture, setFurniture] = useState([]);
   const [homeDecoration, setHomeDecoration] = useState([]);
- 
+  const [kitchenAccessories, setKitchenAccessories] = useState([]);
+  
   useEffect(() => {
     fetch("https://dummyjson.com/products/category/furniture")
       .then((res) => res.json())
@@ -23,6 +24,15 @@ function Furniture() {
   }, []);
 
   
+  useEffect(() => {
+    fetch("https://dummyjson.com/products/category/kitchen-accessories")
+      .then((res) => res.json())
+      .then((data) => {
+        setKitchenAccessories(data.products);
+      });
+  }, []);
+
+  
 
   return (
     <>
@@ -32,6 +42,9 @@ function Furniture() {
           <FurnitureCard key={product.id} product={product} />
         ))}
         {homeDecoration.map((product) => (
+          <FurnitureCard key={product.id} product={product} />
+        ))}
+           {kitchenAccessories.map((product) => (
           <FurnitureCard key={product.id} product={product} />
         ))}
       </div>

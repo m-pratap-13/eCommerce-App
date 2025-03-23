@@ -27,11 +27,11 @@ export const ProductProvider = ({ children }) => {
   const [totalWishlist, setTotalWishlist] = useState(0);
 
   const handleAddToCart = (productId) => {
-    setAddToCart([...addToCart, productId]);
+    setAddToCart([...new Set([...addToCart, productId])]);
   };
 
   const handleAddToWishlist = (productId) => {
-    setAddToWishList([...addToWishlist, productId]);
+    setAddToWishList([...new Set([...addToWishlist, productId])]);
   };
 
   const handleRemoveAddToCart = (productId) => {

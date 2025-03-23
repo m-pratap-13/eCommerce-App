@@ -4,11 +4,12 @@ import {
   FaMobileAlt,
   FaHeadphones,
   FaTv,
-  FaPuzzlePiece,
   FaFutbol,
   FaStore,
+  FaSpa,
 } from "react-icons/fa";
 import { LuArmchair } from "react-icons/lu";
+import { FaCar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const MainHeroSection = () => {
@@ -28,46 +29,68 @@ const MainHeroSection = () => {
       </section>
 
       {/* Categories */}
-      <div className="relative -mt-10 bg-white shadow-lg rounded-lg p-6 max-w-5xl mx-auto grid grid-cols-4 md:grid-cols-8 gap-4">
-        <Link to="/fashion" className="flex flex-col items-center hover:text-green-600">
+      <div className=" relative -mt-10 bg-white shadow-lg rounded-lg p-6 max-w-5xl mx-auto grid  grid-cols-4 md:grid-cols-8 gap-10">
+      <Link to="/all-products" className="flex flex-col items-center hover:text-green-600">
+          <FaTv className="text-xl" />
+          <p className="text-sm font-semibold">All Products</p>
+        </Link>
+        <Link
+          to="/fashion"
+          className="flex flex-col items-center hover:text-green-600"
+        >
           <FaTshirt className="text-xl" />
           <p className="text-sm font-semibold">Fashion</p>
         </Link>
 
-        <Link to="/electronics" className="flex flex-col items-center hover:text-green-600">
+        <Link
+          to="/electronics"
+          className="flex flex-col items-center hover:text-green-600"
+        >
           <FaMobileAlt className="text-xl" />
           <p className="text-sm font-semibold">Electronics</p>
         </Link>
 
-        <Link to="#gaming" className="flex flex-col items-center hover:text-green-600">
-          <FaHeadphones className="text-xl" />
-          <p className="text-sm font-semibold">Gaming</p>
+        <Link
+          to="/beauty"
+          className="flex flex-col items-center hover:text-green-600"
+        >
+          <FaSpa className="text-xl" />
+          <p className="text-sm font-semibold">Beauty</p>
         </Link>
 
-        <Link to="#tv-projectors" className="flex flex-col items-center hover:text-green-600">
-          <FaTv className="text-xl" />
-          <p className="text-sm font-semibold">TV/Projectors</p>
+        <Link
+          to="/vehicles"
+          className="flex flex-col items-center hover:text-green-600"
+        >
+          <FaCar className="text-xl" />
+          <p className="text-sm font-semibold">Vehicles</p>
         </Link>
 
-        <Link to="#toys" className="flex flex-col items-center hover:text-green-600">
-          <FaPuzzlePiece className="text-xl" />
-          <p className="text-sm font-semibold">Toys</p>
-        </Link>
-
-        <Link to="#sport" className="flex flex-col items-center hover:text-green-600">
+        <Link
+          to="/sports-accessories"
+          className="flex flex-col items-center hover:text-green-600"
+        >
           <FaFutbol className="text-xl" />
           <p className="text-sm font-semibold">Sport</p>
         </Link>
 
-        <Link to="#grocery" className="flex flex-col items-center hover:text-green-600">
+        <Link
+          to="/grocery"
+          className="flex flex-col items-center hover:text-green-600"
+        >
           <FaStore className="text-xl" />
           <p className="text-sm font-semibold">Grocery</p>
         </Link>
 
-        <Link to="/furniture" className="flex flex-col items-center hover:text-green-600">
+        <Link
+          to="/home-decoration"
+          className="flex flex-col items-center hover:text-green-600"
+        >
           <LuArmchair className="text-xl" />
-          <p className="text-sm font-semibold">Furniture</p>
+          <p className="text-sm font-semibold">Decoration</p>
         </Link>
+
+      
       </div>
     </div>
   );

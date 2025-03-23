@@ -13,7 +13,7 @@ function ProductContainer() {
   return (
     <>
       <MainHeroSection />
-      <div className="text-4xl font-bold text-900 text-center mt-7">
+      <div className=" text-4xl font-bold text-900 text-center mt-7">
         Best Selling Products
       </div>
       <div className="p-30 flex flex-row flex-wrap justify-center items-center gap-4 md:pt-2 min-h-screen">

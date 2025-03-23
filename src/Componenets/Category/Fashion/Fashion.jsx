@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FashionCard from "./FashionCard";
-import HeroSection from "./HeroSection";
+import HeroSection from "../HeroSection";
 
 function Fashion() {
   const [menShirt, setMenShirt] = useState([]);
@@ -11,6 +11,7 @@ function Fashion() {
   const [womensDresses, setWomensDresses] = useState([]);
   const [mensShoes, setMensShoes] = useState([]);
   const [womensBags, setWomensBags] = useState([]);
+  const [womensJewellery, setWomensJewellery] = useState([]);
 
   useEffect(() => {
     fetch("https://dummyjson.com/products/category/mens-shirts")
@@ -75,6 +76,14 @@ function Fashion() {
         setWomensBags(data.products);
       });
   }, []);
+  
+  useEffect(() => {
+    fetch("https://dummyjson.com/products/category/womens-jewellery")
+      .then((res) => res.json())
+      .then((data) => {
+        setWomensJewellery(data.products);
+      });
+  }, []);
 
   return (
     <>
@@ -102,6 +111,9 @@ function Fashion() {
           <FashionCard key={product.id} product={product} />
         ))}
         {womensBags.map((product) => (
+          <FashionCard key={product.id} product={product} />
+        ))}
+         {womensJewellery.map((product) => (
           <FashionCard key={product.id} product={product} />
         ))}
       </div>

@@ -6,10 +6,14 @@ import ProductContainer from "./Componenets/ProductContainer";
 import SingleProductPage from './Componenets/SingleProductPage.jsx';
 import AddToCart from './Componenets/AddToCart.jsx';
 import AddToWishlist from './Componenets/AddToWishlist.jsx';
-import Fashion from './Componenets/Category/Fashion.jsx';
+import Fashion from './Componenets/Category/Fashion/Fashion.jsx';
 import Search from './Componenets/Search/Search.jsx';
 import Electronics from './Componenets/Category/Electronics/Electronics.jsx';
 import Furniture from './Componenets/Category/Furniture/Furniture.jsx';
+import Sports from './Componenets/Category/Sports/Sports.jsx';
+import Grocery from './Componenets/Category/Grocery/Grocery.jsx';
+import Vehicles from './Componenets/Category/Vehicles/Vehicles.jsx';
+import Beauty from './Componenets/Category/Beauty/Beauty.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,15 +49,31 @@ const router = createBrowserRouter([
         element: <Electronics/>,
       },
       {
-        path: "/furniture",
+        path: "/home-decoration",
         element: <Furniture/>,
       },
+      {
+        path:"sports-accessories",
+        element:<Sports/>,
+      },
+      {
+        path:"/grocery",
+        element:<Grocery/>
+      },
+      {
+        path:"/vehicles",
+        element:<Vehicles/>
+      },
+      {
+        path:"/beauty",
+        element:<Beauty/>
+      }
     ],
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
+  <StrictMode>
     <RouterProvider router={router} />
-  // {/* </StrictMode>, */}
+  </StrictMode>,
 )

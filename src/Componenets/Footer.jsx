@@ -2,7 +2,7 @@ import { FaFacebook, FaDiscord, FaTwitter, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-6">
+    <footer className="bg-gray-900 text-white py-6 w-full text-cente">
       <div className="max-w-6xl mx-auto px-4">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center">
