@@ -5,7 +5,7 @@ export default function PreviewImage({ product }) {
   const [imgIdx, setImgIdx] = useState(0);
   const handleImage = (idx) => {
     // console.log(idx)
-    setImgIdx(idx)
+    setImgIdx(idx);
   };
 
   return (
@@ -35,7 +35,6 @@ export default function PreviewImage({ product }) {
             alt="Main"
             className="h-100 rounded-lg shadow-md"
           />
-          <FaExpand className="absolute top-2 right-2 text-white bg-black bg-opacity-50 p-1 rounded-full text-xl" />
         </div>
       </div>
     </div>

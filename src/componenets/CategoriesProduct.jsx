@@ -2,17 +2,11 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Container from "./Container";
 
-function CategoriesProduct() {
-  const [products, setProducts] = useState([]);
+function CategoriesProduct({products}) {
 
-  useEffect(() => {
-    fetch('https://dummyjson.com/products')
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, []);
   return (
     <Container>
-      {products.map((product) => (
+      {products?.map((product) => (
         <Card
           key={product.id}
           id={product.id}

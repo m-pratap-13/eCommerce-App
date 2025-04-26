@@ -6,9 +6,9 @@ export default function Navbar() {
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products/category-list")
+    fetch("https://dummyjson.com/products/categories")
       .then((res) => res.json())
-      .then((data) => setTags(data));
+      .then((tags) => setTags(tags));
   }, []);
   return (
     <nav className="bg-gray-900 text-white p-4">
@@ -16,7 +16,7 @@ export default function Navbar() {
         {/* Logo and Cart/User/Menu */}
         <div className="flex items-center justify-between w-full md:w-auto">
           <div className="flex items-center gap-2">
-            <div className="text-blue-500 text-2xl font-bold">eCommarce </div>
+            <Link to="/" className="text-blue-500 text-2xl font-bold">eCommarce </Link>
           </div>
           <div className="md:hidden flex items-center gap-4">
             <button className="flex items-center gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer">
@@ -63,13 +63,14 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <div className="container mx-auto mt-4 flex flex-wrap justify-start md:justify-start gap-4 text-sm font-medium">
-        <Link to='/all-categories' className="hover:underline">
-          All categories
-        </Link>
-        {tags.map((tag,idx) => (
-          <a key={idx} href="#" className="hover:underline">
-            {tag}
-          </a>
+        {tags.map((tag, idx) => (
+          <Link
+            key={idx}
+            to={`/${tag.slug}`}
+            className="hover:underline"
+          >
+            {tag.name}
+          </Link>
         ))}
       </div>
     </nav>

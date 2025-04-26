@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         element: <HomePage/>,
       },
       {
-        path:"/all-categories",
+        path:"/:categories",
         element:<CategoriesPage/>
       },
       {
@@ -33,37 +33,11 @@ const router = createBrowserRouter([
       //   element: <AddToWishlist/>,
       // },
       // {
-      //   path: "/fashion",
-      //   element: <Fashion/>,
-      // },
+      
       // {
       //   path: "search/:query",
       //   element: <Search/>,
       // },
-      // {
-      //   path: "/electronics",
-      //   element: <Electronics/>,
-      // },
-      // {
-      //   path: "/home-decoration",
-      //   element: <Furniture/>,
-      // },
-      // {
-      //   path:"sports-accessories",
-      //   element:<Sports/>,
-      // },
-      // {
-      //   path:"/grocery",
-      //   element:<Grocery/>
-      // },
-      // {
-      //   path:"/vehicles",
-      //   element:<Vehicles/>
-      // },
-      // {
-      //   path:"/beauty",
-      //   element:<Beauty/>
-      // }
     ],
   },
 ]);

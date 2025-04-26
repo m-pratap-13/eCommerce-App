@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function SmallCard({ id, title, discountPercentage, images }) {
   return (
-    <div
-      key={id}
+    <Link
+    to={`/product/${id}/${title}`}
       className="mb-3 min-w-[120px] sm:min-w-[140px] lg:min-w-[160px] bg-white rounded-md text-center p-2 shadow-sm hover:shadow-md transition"
     >
       <img
@@ -13,7 +14,7 @@ function SmallCard({ id, title, discountPercentage, images }) {
       />
       <p className="mt-2 text-sm font-medium">{title}</p>
       <p className="text-xs text-gray-500">{discountPercentage}% off</p>
-    </div>
+    </Link>
   );
 }
 

@@ -8,8 +8,8 @@ export default function SelectionBox({ section }) {
   useEffect(() => {
     fetch(
       `https://dummyjson.com/products?limit=4&skip=${Math.floor(
-        Math.random() * 191
-      )}&select=title,images,discountPercentage`
+        Math.random() * 190
+      )}&select=images,title,discountPercentage,`
     )
       .then((res) => res.json())
       .then((data) => setProducts(data.products));
@@ -27,11 +27,11 @@ export default function SelectionBox({ section }) {
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-4">
         {products.map((product) => (
           <SmallCard
-          key={product.id}
+            key={product.id}
             id={product.id}
             title={product.title}
             discountPercentage={Math.round(product.discountPercentage)}
-            images={product.images[0]}
+            images={product.images?.[0]}
           />
         ))}
       </div>

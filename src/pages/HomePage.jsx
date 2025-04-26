@@ -73,11 +73,11 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    const beautyCategories = [ "home-decoration", "furniture"];
+    const homeCategories = [ "home-decoration", "furniture"];
     let allProducts = [];
 
     Promise.all(
-      beautyCategories.map((cat) =>
+      homeCategories.map((cat) =>
         fetch(`https://dummyjson.com/products/category/${cat}`)
           .then((res) => res.json())
           .then((data) => {
@@ -90,11 +90,11 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    const beautyCategories = [ "kitchen-accessories"];
+    const kitchenCategories = [ "kitchen-accessories"];
     let allProducts = [];
 
     Promise.all(
-      beautyCategories.map((cat) =>
+      kitchenCategories.map((cat) =>
         fetch(`https://dummyjson.com/products/category/${cat}`)
           .then((res) => res.json())
           .then((data) => {
@@ -106,6 +106,7 @@ function HomePage() {
     });
   }, []);
 
+  // kitchenAccessoriesProducts.map((item)=>console.log(item))
 
   return (
     <>

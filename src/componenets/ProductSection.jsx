@@ -14,7 +14,7 @@ export default function ProductSection({ section, products }) {
               id={product.id}
               title={product.title}
               discountPercentage={Math.round(product.discountPercentage)}
-              images={product.images[0]}
+              images={product.images?.[0]}
             />
           ))}
         </div>
