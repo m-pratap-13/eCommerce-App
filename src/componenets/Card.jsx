@@ -1,8 +1,12 @@
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../features/addToCartSlice";
 
 function Card({id,title,priceAfterDiscount,price,discountPercentage,stock,images}) {
+  const dispatch = useDispatch()
+ 
   return (
     <div>
       {" "}
@@ -50,7 +54,7 @@ function Card({id,title,priceAfterDiscount,price,discountPercentage,stock,images
           {/* Add to Cart Button */}
           <button
             className="mt-3 w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition cursor-pointer"
-            // onClick={() => handleAddToCart(product.id)}
+            onClick={() => dispatch(addToCart(id))}
           >
             ADD TO CART
           </button>

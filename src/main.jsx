@@ -1,11 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import CategoriesPage from './pages/CategoriesPage.jsx'
-import HomePage from './pages/HomePage.jsx'
-import SingleProductPage from './pages/SingleProductPage.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import CategoriesPage from "./pages/CategoriesPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import SingleProductPage from "./pages/SingleProductPage.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
+import { store } from "./store/store.js";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -14,15 +17,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage/>,
+        element: <HomePage />,
       },
       {
-        path:"/:categories",
-        element:<CategoriesPage/>
+        path: "/:categories",
+        element: <CategoriesPage />,
       },
       {
-        path:"/product/:id/:productName",
-        element: <SingleProductPage/>,
+        path: "/product/:id/:productName",
+        element: <SingleProductPage />,
       },
       // {
       //   path: "/addtocart",
@@ -33,17 +36,19 @@ const router = createBrowserRouter([
       //   element: <AddToWishlist/>,
       // },
       // {
-      
-      // {
-      //   path: "search/:query",
-      //   element: <Search/>,
-      // },
+
+      {
+        path: "search/:query",
+        element: <SearchPage />,
+      },
     ],
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
- <RouterProvider router={router} />
-  </StrictMode>,
-)
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </StrictMode>
+);

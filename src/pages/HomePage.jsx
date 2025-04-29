@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import HeroSection from "../componenets/HeroSection";
 import ProductSection from "../componenets/ProductSection";
 import SelectionContainer from "../componenets/SelectionContainer";
+import { useSelector } from "react-redux";
 
 function HomePage() {
   const [electronicssProducts, setElectroniceProducts] = useState([]);
   const [fashionsProducts, setFashionsProducts] = useState([]);
   const [beautyProducts, setBeautyProducts] = useState([]);
   const [furnitureProducts, setFurnitureProducts] = useState([]);
-  const [kitchenAccessoriesProducts, setkitchenAccessoriesProducts] = useState([]);
+  const [kitchenAccessoriesProducts, setkitchenAccessoriesProducts] = useState(
+    []
+  );
 
   useEffect(() => {
     const electronicsCategories = ["laptops", "smartphones", "tablets"];
@@ -73,7 +76,7 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    const homeCategories = [ "home-decoration", "furniture"];
+    const homeCategories = ["home-decoration", "furniture"];
     let allProducts = [];
 
     Promise.all(
@@ -90,7 +93,7 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    const kitchenCategories = [ "kitchen-accessories"];
+    const kitchenCategories = ["kitchen-accessories"];
     let allProducts = [];
 
     Promise.all(
@@ -106,8 +109,6 @@ function HomePage() {
     });
   }, []);
 
-  // kitchenAccessoriesProducts.map((item)=>console.log(item))
-
   return (
     <>
       <HeroSection />
@@ -118,8 +119,14 @@ function HomePage() {
       <ProductSection section="Best of Fashions" products={fashionsProducts} />
       <ProductSection section="Best of Beauty" products={beautyProducts} />
       <SelectionContainer />
-      <ProductSection section="Home Decoration For You" products={furnitureProducts} />
-      <ProductSection section="Kitchen Accessories For You" products={kitchenAccessoriesProducts} />
+      <ProductSection
+        section="Home Decoration For You"
+        products={furnitureProducts}
+      />
+      <ProductSection
+        section="Kitchen Accessories For You"
+        products={kitchenAccessoriesProducts}
+      />
       <SelectionContainer />
     </>
   );

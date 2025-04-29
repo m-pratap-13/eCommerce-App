@@ -1,6 +1,7 @@
 import React from "react";
+import { FaStar } from "react-icons/fa";
 
-function ProductDetails({product}) {
+function ProductDetails({ product }) {
   return (
     <>
       <h2 className="text-2xl font-semibold">{product.title}</h2>
@@ -29,10 +30,9 @@ function ProductDetails({product}) {
           <span className="font-semibold">Description:</span>{" "}
           {product.description}
         </p>
-
-        <p className="text-gray-700">
-          <span className="font-semibold">Rating : </span> {product.rating}/5
-        </p>
+        <span className="flex items-center bg-green-600 text-white text-xs px-2 py-0.5 rounded w-15 h-8">
+          {product.rating} <FaStar className="ml-1 text-yellow-300" />
+        </span>
       </div>
     </>
   );

@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 function CategoriesPage() {
   const { categories } = useParams();
   const [products, setProducts] = useState([]);
-  console.log(categories);
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/category/${categories}`)
@@ -14,7 +13,6 @@ function CategoriesPage() {
       .then((data) => setProducts(data.products));
   }, [categories]);
 
-  console.log(products);
   return (
     <>
       <HeroSection />
