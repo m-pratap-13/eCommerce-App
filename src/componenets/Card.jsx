@@ -53,8 +53,9 @@ function Card({id,title,priceAfterDiscount,price,discountPercentage,stock,images
 
           {/* Add to Cart Button */}
           <button
-            className="mt-3 w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition cursor-pointer"
+            className={`mt-3 w-full bg-blue-500 text-white font-semibold py-2 rounded-lg transition cursor-pointer ${stock > 0 ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-400 cursor-not-allowed'}`}
             onClick={() => dispatch(addToCart(id))}
+            disabled={stock === 0}
           >
             ADD TO CART
           </button>

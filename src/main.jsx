@@ -9,6 +9,7 @@ import SingleProductPage from "./pages/SingleProductPage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
 import { store } from "./store/store.js";
 import { Provider } from "react-redux";
+import AddToCartPage from "./pages/AddToCartPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,10 +28,10 @@ const router = createBrowserRouter([
         path: "/product/:id/:productName",
         element: <SingleProductPage />,
       },
-      // {
-      //   path: "/addtocart",
-      //   element: <AddToCart/>,
-      // },
+      {
+        path: "/addtocart",
+        element: <AddToCartPage/>,
+      },
       // {
       //   path: "/addtowishlist",
       //   element: <AddToWishlist/>,

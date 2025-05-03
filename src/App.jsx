@@ -7,12 +7,12 @@ function App() {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <header>
+        <header className="mb-10">
           <Navbar />
         </header>
 
         {/* Main content area */}
-        <main className="flex-grow">
+        <main className="flex-grow mt-70 md:mt-50 lg:mt-30">
           <Outlet />
         </main>
         <footer>

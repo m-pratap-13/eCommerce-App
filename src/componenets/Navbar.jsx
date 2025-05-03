@@ -22,7 +22,7 @@ export default function Navbar() {
       .then((tags) => setTags(tags));
   }, []);
   return (
-    <nav className="bg-gray-900 text-white p-4">
+    <nav className="bg-gray-900 text-white p-4 fixed w-[100%] z-10">
       <div className="container mx-auto flex flex-wrap items-center justify-between gap-4">
         {/* Logo and Cart/User/Menu */}
         <div className="flex items-center justify-between w-full md:w-auto">
@@ -35,9 +35,9 @@ export default function Navbar() {
             <button className="flex items-center gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer">
               <FiShoppingCart /> ($106.7)
             </button>
-            <button className="flex items-center gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer">
+            <Link to="/addtocart" className="flex items-center gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer">
               <FiShoppingCart /> ($106.7)
-            </button>
+            </Link>
             <button className="flex items-center gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer">
               <FiUser />
             </button>
@@ -68,7 +68,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 text-sm cursor-pointer">
             <FiShoppingCart />4 items ($106.7)
           </div>
-          <Link to="/" className="flex items-center gap-2 text-sm cursor-pointer">
+          <Link to="/addtocart" className="flex items-center gap-2 text-sm cursor-pointer">
             <FiShoppingCart />4 items ($106.7)
           </Link>
           <div className="flex items-center gap-2 text-sm cursor-pointer">
