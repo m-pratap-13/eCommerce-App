@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import ShoppingCard from "../componenets/ShopingCard";
+import WishlistCard from "./WishlistCard";
 
-function AddToCartItems({ quantity, setQuantity }) {
-  const [cartData, setCartData] = useState([]);
-  const cartItemsId = useSelector((state) => state.cartId.cartItemsId) || [];
+function WishlistItems() {
+  const [wishlistData, setWishlistData] = useState([]);
+  const wishlistItemsId =
+    useSelector((state) => state.wishlistId.wishlistItemsId) || [];
   useEffect(() => {
-    let allAddTocartsProducts = [];
+    let allWishlistProducts = [];
 
     Promise.all(
-      cartItemsId.map((id) =>
+      wishlistItemsId.map((id) =>
         fetch(`https://dummyjson.com/products/${id}`)
           .then((res) => res.json())
           .then((data) => {
-            allAddTocartsProducts = allAddTocartsProducts.concat(data);
+            allWishlistProducts = allWishlistProducts.concat(data);
           })
       )
     ).then(() => {
-      setCartData(allAddTocartsProducts);
+      setWishlistData(allWishlistProducts);
     });
-  }, [cartItemsId]);
+  }, [wishlistItemsId]);
 
   return (
-    <div>
-      {cartData?.map((product) => (
-        <ShoppingCard
+    <div className="p-10 ">
+      {wishlistData?.map((product) => (
+        <WishlistCard
           key={product.id}
           id={product.id}
           title={product.title}
@@ -39,12 +40,10 @@ function AddToCartItems({ quantity, setQuantity }) {
           rating={product.rating}
           description={product.description}
           warranty={product.warrantyInformation}
-          quantity={quantity}
-          setQuantity={setQuantity}
         />
       ))}
     </div>
   );
 }
 
-export default AddToCartItems;
+export default WishlistItems;

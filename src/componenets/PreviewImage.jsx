@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { FaExpand } from "react-icons/fa"; // Example icon
+import { FaExpand, FaHeart } from "react-icons/fa";
+import WishlistBtn from "./WishlistBtn";
 
 export default function PreviewImage({ product }) {
   const [imgIdx, setImgIdx] = useState(0);
   const handleImage = (idx) => {
-    // console.log(idx)
     setImgIdx(idx);
   };
 
@@ -30,6 +30,7 @@ export default function PreviewImage({ product }) {
       {/* Main Image Display */}
       <div className="flex-1 flex justify-center items-center">
         <div className="relative">
+          <WishlistBtn product={product}/>
           <img
             src={product.images?.[imgIdx]}
             alt="Main"

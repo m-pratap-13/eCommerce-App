@@ -9,6 +9,7 @@ function CategoriesProduct({products}) {
       {products?.map((product) => (
         <Card
           key={product.id}
+          product={product}
           id={product.id}
           title={product.title}
           priceAfterDiscount={(

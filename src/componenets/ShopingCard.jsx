@@ -1,7 +1,9 @@
-import { FaTrashAlt } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { FaHeart, FaRegHeart, FaTrashAlt } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import { removeToCart } from "../features/addToCartSlice";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { addToWishlist, removeToWishlist } from "../features/addToWishlistSlice";
 
 export default function ShoppingCard({
   id,
@@ -14,14 +16,23 @@ export default function ShoppingCard({
   quantity,
   setQuantity,
 }) {
-  const dispatch = useDispatch();
   const totalStock = Array.from({ length: stock }, (_, i) => i + 1);
-  // const [quantity, setQuantity] = useState(1);
+    const dispatch = useDispatch();
+  const isAdded = useSelector((state) =>
+    (state.wishlistId.wishlistItemsId || []).includes(id)
+  );
 
+  const handleWishlist = (productId) => {
+    if (isAdded) {
+      dispatch(removeToWishlist(productId));
+    } else {
+      dispatch(addToWishlist(productId));
+    }
+  };
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between border border-amber-100 p-6 gap-4 lg:gap-0 w-full">
       {/* Left Section: Image + Info */}
-      <div className="flex items-center gap-4 w-full lg:w-1/2">
+      <Link to={`/product/${id}/${title}`} className="flex items-center gap-4 w-full lg:w-1/2">
         <img
           src={images}
           alt={title}
@@ -31,7 +42,7 @@ export default function ShoppingCard({
           <h2 className="text-base font-medium text-gray-900">{title}</h2>
           <p className="text-sm text-gray-500">{warranty}</p>
         </div>
-      </div>
+      </Link>
 
       {/* Middle Section: Quantity and Remove */}
       <div className="flex flex-row items-center justify-between sm:justify-start sm:gap-6 w-full sm:w-auto">
@@ -43,6 +54,12 @@ export default function ShoppingCard({
             <option key={num}>{num}</option>
           ))}
         </select>
+        <button
+          className={`ml-4 text-sm  ${isAdded?"text-red-500":"text-purple-600"} hover:underline flex items-center gap-1 cursor-pointer`}
+          onClick={() => handleWishlist(id)}
+        >
+          <FaHeart className={`text-xs ${isAdded?"text-red-500":""}`} />Wishlist
+        </button>
         <button
           className="ml-4 text-sm text-purple-600 hover:underline flex items-center gap-1 cursor-pointer"
           onClick={() => dispatch(removeToCart(id))}

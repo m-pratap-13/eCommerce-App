@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { FaTag, FaTruck, FaRupeeSign } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import OrderBtn from "./OrderBtn";
 
 export default function PriceDetails({ quantity }) {
   const [cartPrice, setCartPrice] = useState([]);
   const [off, setOff] = useState([]);
   const PLAT_FORM_FEE = 1;
-  const cartItemsId = useSelector((state) => state.cartItemsId);
+  const cartItemsId = useSelector((state) => state.cartId.cartItemsId) || [];
   useEffect(() => {
     let allAddTocartsProductsPrice = [];
     let discount = [];
@@ -88,12 +89,10 @@ export default function PriceDetails({ quantity }) {
       </div>
 
       <p className="text-green-600 text-sm mt-2 font-medium">
-        You will save $ {off.reduce((sum, current) => sum + current, 0).toFixed(2)-PLAT_FORM_FEE} on this order
+        You will save $ {(off.reduce((sum, current) => sum + current, 0).toFixed(2)-PLAT_FORM_FEE).toFixed(2)} on this order
       </p>
-      <div className="mt-4">
-        <button className="w-full bg-orange-500 text-white py-2 rounded-md text-lg font-semibold hover:bg-orange-600">
-          ORDER
-        </button>
+      <div className="w-full mt-4">
+        <OrderBtn/>
       </div>
     </div>
   );

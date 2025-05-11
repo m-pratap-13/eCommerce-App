@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
+import { FaRegHeart } from "react-icons/fa";
 import { FiSearch, FiShoppingCart, FiUser, FiMenu } from "react-icons/fi";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [tags, setTags] = useState([]);
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
+  const cartItemsId = useSelector((state) => state.cartId.cartItemsId) || [];
+  const wishlistItemsId =
+    useSelector((state) => state.wishlistId.wishlistItemsId) || [];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,14 +37,32 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="md:hidden flex items-center gap-4">
-            <button className="flex items-center gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer">
-              <FiShoppingCart /> ($106.7)
-            </button>
-            <Link to="/addtocart" className="flex items-center gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer">
-              <FiShoppingCart /> ($106.7)
+            <Link
+              to={"/wishlist"}
+              className="flex items-center relative gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer"
+            >
+              <FaRegHeart />
+              Wishlist
+               {wishlistItemsId.length > 0 && (
+                <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1">
+                  {wishlistItemsId.length}
+                </span>
+              )}
+            </Link>
+            <Link
+              to="/addtocart"
+              className="flex items-center gap-1 relative text-sm border px-2 py-1 rounded-md cursor-pointer"
+            >
+              <FiShoppingCart />
+              Cart
+              {cartItemsId.length > 0 && (
+                <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1">
+                  {cartItemsId.length}
+                </span>
+              )}
             </Link>
             <button className="flex items-center gap-1 text-sm border px-2 py-1 rounded-md cursor-pointer">
-              <FiUser />
+              <FiUser /> Account
             </button>
             {/* <FiMenu /> */}
           </div>
@@ -65,13 +88,30 @@ export default function Navbar() {
 
         {/* Desktop Icons */}
         <div className="hidden md:flex items-center gap-6">
-          <div className="flex items-center gap-2 text-sm cursor-pointer">
-            <FiShoppingCart />4 items ($106.7)
-          </div>
-          <Link to="/addtocart" className="flex items-center gap-2 text-sm cursor-pointer">
-            <FiShoppingCart />4 items ($106.7)
+          <Link
+            to={"/wishlist"}
+            className="flex items-center relative gap-2 text-sm cursor-pointer border px-2 py-1"
+          >
+            <FaRegHeart /> Wishlist
+             {wishlistItemsId.length > 0 && (
+                <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1">
+                  {wishlistItemsId.length}
+                </span>
+              )}
           </Link>
-          <div className="flex items-center gap-2 text-sm cursor-pointer">
+          <Link
+            to="/addtocart"
+            className="flex items-center relative gap-2 text-sm border px-2 py-1 cursor-pointer"
+          >
+            <FiShoppingCart />
+            Cart
+            {cartItemsId.length > 0 && (
+              <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1">
+                {cartItemsId.length}
+              </span>
+            )}
+          </Link>
+          <div className="flex items-center gap-2 text-sm cursor-pointer border px-2 py-1 ">
             <FiUser />
             Account
           </div>

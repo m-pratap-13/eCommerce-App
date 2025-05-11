@@ -10,6 +10,7 @@ import SearchPage from "./pages/SearchPage.jsx";
 import { store } from "./store/store.js";
 import { Provider } from "react-redux";
 import AddToCartPage from "./pages/AddToCartPage.jsx";
+import WishlistPage from "./pages/WishlistPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +33,10 @@ const router = createBrowserRouter([
         path: "/addtocart",
         element: <AddToCartPage/>,
       },
-      // {
-      //   path: "/addtowishlist",
-      //   element: <AddToWishlist/>,
-      // },
+      {
+        path: "/wishlist",
+        element: <WishlistPage/>,
+      },
       // {
 
       {

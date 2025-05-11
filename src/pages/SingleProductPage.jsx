@@ -4,10 +4,13 @@ import ReviewCard from "../componenets/ReviewCard";
 import PreviewImage from "../componenets/PreviewImage";
 import ProductDetails from "../componenets/ProductDetails";
 import AddToCartBtn from "../componenets/AddToCartBtn";
+import { useSelector } from "react-redux";
+import OrderBtn from "../componenets/OrderBtn";
 
 function SingleProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+
   useEffect(() => {
     fetch(`https://dummyjson.com/products/${id}`)
       .then((res) => res.json())
@@ -22,11 +25,14 @@ function SingleProductPage() {
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Product Image */}
-            <PreviewImage product={product}/>
+            <PreviewImage product={product} />
             {/* Product Details */}
             <div>
               <ProductDetails product={product} />
-              <AddToCartBtn product={product} />
+              <div className="flex flex-row gap-1">
+                <AddToCartBtn product={product} />
+                <OrderBtn />
+              </div>
             </div>
           </div>
 
