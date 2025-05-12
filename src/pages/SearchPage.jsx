@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Container from "../componenets/Container";
-import SearchCard from "../componenets/SearchCard";
 import { useParams } from "react-router-dom";
+import SearchItems from "../componenets/SearchItems";
+import EmptyCart from "../componenets/EmptyCart";
+import { ImSearch } from "react-icons/im";
 
 function SearchPage() {
   const { query } = useParams();
@@ -14,24 +16,11 @@ function SearchPage() {
   }, [query]);
   return (
     <Container>
-      {products?.map((product) => (
-        <SearchCard
-          key={product.id}
-          id={product.id}
-          title={product.title}
-          priceAfterDiscount={(
-            product.price -
-            (product.price * Math.round(product.discountPercentage)) / 100
-          ).toFixed(2)}
-          price={product.price}
-          discountPercentage={Math.round(product.discountPercentage)}
-          stock={product.stock}
-          images={product.images?.[0]}
-          rating={product.rating}
-          description={product.description}
-          warranty={product.warrantyInformation}
-        /> 
-      ))}
+      {products.length > 0 ? (
+        <SearchItems products={products} />
+      ) : (
+        <EmptyCart icon={<ImSearch size={50}/>} text="SEARCH" />
+      )}
     </Container>
   );
 }

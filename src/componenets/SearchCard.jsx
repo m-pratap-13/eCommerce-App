@@ -7,7 +7,6 @@ export default function SearchCard({
   priceAfterDiscount,
   price,
   discountPercentage,
-  stock,
   images,
   rating,
   description,

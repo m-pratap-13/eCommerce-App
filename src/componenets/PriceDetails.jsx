@@ -92,7 +92,7 @@ export default function PriceDetails({ quantity }) {
         You will save $ {(off.reduce((sum, current) => sum + current, 0).toFixed(2)-PLAT_FORM_FEE).toFixed(2)} on this order
       </p>
       <div className="w-full mt-4">
-        <OrderBtn/>
+        <OrderBtn width={"w-full"}/>
       </div>
     </div>
   );

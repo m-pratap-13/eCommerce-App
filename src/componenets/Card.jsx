@@ -49,7 +49,7 @@ function Card({
           {/* Add to Cart Button */}
           <div className="flex gap-2">
             <AddToCartBtn product={product} />
-            <OrderBtn />
+            <OrderBtn width="w-[28%]"/>
           </div>
         </div>
       </div>
