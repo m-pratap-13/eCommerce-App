@@ -5,7 +5,8 @@ import EmptyCart from "../componenets/EmptyCart";
 import { FaHeart } from "react-icons/fa";
 
 function WishlistPage() {
-  const wishlistItemsId = useSelector((state) => state.wishlistId.wishlistItemsId) || [];
+  const wishlistItemsId =
+    useSelector((state) => state.wishlistId.wishlistItemsId) || [];
   return (
     <div className="flex flex-col lg:flex-row gap-4 px-4 py-6 max-w-[1440px] mx-auto">
       {/* Wishlist Items section */}
@@ -16,7 +17,8 @@ function WishlistPage() {
       ) : (
         <EmptyCart
           icon={<FaHeart size={50} className="text-gray-400" />}
-          text="WISHLIST"
+          result=" Empty Wishlist !"
+          suggest="You have no items in your wishlist. Start adding!"
         />
       )}
     </div>

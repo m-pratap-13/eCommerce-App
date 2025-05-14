@@ -19,7 +19,7 @@ function SearchPage() {
       {products.length > 0 ? (
         <SearchItems products={products} />
       ) : (
-        <EmptyCart icon={<ImSearch size={50}/>} text="SEARCH" />
+        <EmptyCart icon={<ImSearch size={50}/>} result="Sorry, no results found!" suggest="Please check the spelling or try searching for something else ...."/>
       )}
     </Container>
   );

@@ -17,18 +17,19 @@ function AddToCartPage() {
           <AddToCartItems quantity={quantity} setQuantity={setQuantity} />
         </div>
       ) : (
-        <EmptyCart icon={<BsCartX size={50} className="text-gray-400" />} text="CART"/>
+        <EmptyCart
+          icon={<BsCartX size={50} className="text-gray-400" />}
+          result=" Your CART is empty !"
+          suggest="Explore our wide selection and find something you like"
+        />
       )}
 
       {/* Price Details section */}
       {cartItemsId.length > 0 ? (
-            <div className="w-full lg:w-1/3">
-            <PriceDetails quantity={quantity} />
-          </div>
-      ) : (
-        null
-      )}
- 
+        <div className="w-full lg:w-1/3">
+          <PriceDetails quantity={quantity} />
+        </div>
+      ) : null}
     </div>
   );
 }
