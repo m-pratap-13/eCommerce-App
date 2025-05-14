@@ -3,7 +3,9 @@
 A fully responsive eCommerce web application built with **React JS**, **Tailwind CSS**, and **DummyJSON API**. This project showcases a complete shopping experience, including product browsing, detailed views, and a shopping cart—all optimized for performance and usability on **all devices**.
 
 ---
-## Netlify : [eCommerce](ecommerce-web-app-by-pratap-13.netlify.app)
+
+## Netlify : [eCommerce Web App](https://ecommerce-web-app-by-pratap-13.netlify.app)
+
 ---
 
 ## 🚀 Features
