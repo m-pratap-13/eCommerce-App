@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReviewCard from "../componenets/ReviewCard";
 import PreviewImage from "../componenets/PreviewImage";
 import ProductDetails from "../componenets/ProductDetails";
 import AddToCartBtn from "../componenets/AddToCartBtn";
-import { useSelector } from "react-redux";
 import OrderBtn from "../componenets/OrderBtn";
+import useSingleProduct from "../hooks/useSingleProduct";
 
 function SingleProductPage() {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
-
-  useEffect(() => {
-    fetch(`https://dummyjson.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProduct(data);
-      });
-  }, []);
+  const product = useSingleProduct(id);
 
   return (
     <>

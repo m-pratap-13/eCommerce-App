@@ -26,7 +26,12 @@ function Card({
           to={`/product/${id}/${title}`}
           className="w-full h-40 flex justify-center items-center bg-gray-100 cursor-pointer"
         >
-          <img src={images} alt={title} className="h-full object-contain" />
+          <img
+            src={images}
+            alt={title}
+            className="h-full object-contain"
+            loading="lazy"
+          />
         </Link>
 
         {/* Product Details */}
@@ -49,7 +54,7 @@ function Card({
           {/* Add to Cart Button */}
           <div className="flex gap-2">
             <AddToCartBtn product={product} />
-            <OrderBtn width="w-[28%]"/>
+            <OrderBtn width="w-[28%]" />
           </div>
         </div>
       </div>

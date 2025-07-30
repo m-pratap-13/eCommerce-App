@@ -12,7 +12,7 @@ function App() {
         </header>
 
         {/* Main content area */}
-        <main className="flex-grow mt-70 md:mt-50 lg:mt-30">
+        <main className="flex-grow mt-8">
           <Outlet />
         </main>
         <footer>

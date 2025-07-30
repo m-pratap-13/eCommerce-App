@@ -25,6 +25,7 @@ export default function WishlistCard({
             src={images}
             alt={title}
             className="w-full h-full object-contain"
+            loading="lazy"
           />
         </Link>
 
@@ -48,7 +49,10 @@ export default function WishlistCard({
         </Link>
 
         {/* Delete Icon */}
-        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={()=>dispatch(removeToWishlist(id))}>
+        <button
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => dispatch(removeToWishlist(id))}
+        >
           <FaTrash />
         </button>
       </div>

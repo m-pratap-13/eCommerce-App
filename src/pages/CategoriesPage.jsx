@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
 import HeroSection from "../componenets/HeroSection";
 import CategoriesProduct from "../componenets/CategoriesProduct";
 import { useParams } from "react-router-dom";
+import useCategoriesProducts from "../hooks/useCategoriesProducts";
 
 function CategoriesPage() {
-  const { categories } = useParams();
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://dummyjson.com/products/category/${categories}`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, [categories]);
-
+  const { category } = useParams();
+  const products = useCategoriesProducts(category);
   return (
     <>
       <HeroSection />

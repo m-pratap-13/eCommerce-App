@@ -21,7 +21,12 @@ export default function SearchCard({
       <div className="flex flex-col md:flex-row border rounded-lg p-4 gap-4 shadow-sm">
         {/* Image */}
         <div className="flex-shrink-0 flex justify-center md:justify-start">
-          <img src={images} alt={title} className="w-32 h-24 object-contain" />
+          <img
+            src={images}
+            alt={title}
+            className="w-32 h-24 object-contain"
+            loading="lazy"
+          />
         </div>
 
         {/* Info Section */}

@@ -11,6 +11,8 @@ import { store } from "./store/store.js";
 import { Provider } from "react-redux";
 import AddToCartPage from "./pages/AddToCartPage.jsx";
 import WishlistPage from "./pages/WishlistPage.jsx";
+import CategoriesMenu from "./componenets/CategoriesMenu.jsx";
+import CategoriesListPage from "./pages/CategoriesListPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +24,12 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/:categories",
+        path: "/categories/:category",
         element: <CategoriesPage />,
+      },
+      {
+        path: "categories-menu",
+        element: <CategoriesListPage />,
       },
       {
         path: "/product/:id/:productName",
@@ -31,11 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtocart",
-        element: <AddToCartPage/>,
+        element: <AddToCartPage />,
       },
       {
         path: "/wishlist",
-        element: <WishlistPage/>,
+        element: <WishlistPage />,
       },
       // {
 

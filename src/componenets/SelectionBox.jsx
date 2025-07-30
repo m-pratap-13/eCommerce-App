@@ -1,19 +1,10 @@
 import { FaChevronRight } from "react-icons/fa";
 import SmallCard from "./SmallCard";
-import { useEffect, useState } from "react";
+import useRandomFourProduct from "../hooks/useRandomFourProduct";
 
 export default function SelectionBox({ section }) {
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetch(
-      `https://dummyjson.com/products?limit=4&skip=${Math.floor(
-        Math.random() * 190
-      )}&select=images,title,discountPercentage,`
-    )
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, []);
+  const products = useRandomFourProduct()
 
   return (
     <section className="bg-gray-50 w-[100%] p-4 sm:p-6 md:p-8 ">

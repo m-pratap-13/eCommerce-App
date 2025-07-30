@@ -22,6 +22,7 @@ export default function PreviewImage({ product }) {
               src={img}
               alt={product.title}
               className="w-20 h-28 object-cover"
+              loading="lazy"
             />
           </button>
         ))}
@@ -30,11 +31,12 @@ export default function PreviewImage({ product }) {
       {/* Main Image Display */}
       <div className="flex-1 flex justify-center items-center">
         <div className="relative">
-          <WishlistBtn product={product}/>
+          <WishlistBtn product={product} />
           <img
             src={product.images?.[imgIdx]}
             alt="Main"
             className="h-100 rounded-lg shadow-md"
+            loading="lazy"
           />
         </div>
       </div>

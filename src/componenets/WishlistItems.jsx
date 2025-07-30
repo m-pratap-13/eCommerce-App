@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import WishlistCard from "./WishlistCard";
+import useCartWishlist from "../hooks/useCartWishlist";
+import { useSelector } from "react-redux";
 
 function WishlistItems() {
-  const [wishlistData, setWishlistData] = useState([]);
   const wishlistItemsId =
     useSelector((state) => state.wishlistId.wishlistItemsId) || [];
-  useEffect(() => {
-    let allWishlistProducts = [];
-
-    Promise.all(
-      wishlistItemsId.map((id) =>
-        fetch(`https://dummyjson.com/products/${id}`)
-          .then((res) => res.json())
-          .then((data) => {
-            allWishlistProducts = allWishlistProducts.concat(data);
-          })
-      )
-    ).then(() => {
-      setWishlistData(allWishlistProducts);
-    });
-  }, [wishlistItemsId]);
+  const products = useCartWishlist(wishlistItemsId)
 
   return (
     <div className="p-10 ">
-      {wishlistData?.map((product) => (
+      {products?.map((product) => (
         <WishlistCard
           key={product.id}
           id={product.id}
